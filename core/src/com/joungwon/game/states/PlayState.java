@@ -1,7 +1,9 @@
 package com.joungwon.game.states;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.joungwon.game.sprites.Bunny;
@@ -14,10 +16,14 @@ public class PlayState extends State {
     private Bunny bunny;
     private Texture background;
     private Array<HitBox> boxes;
+    private BitmapFont font;
+    public int score;
 
     // find image for bunny then set camera on bunny
     protected PlayState(GameStateManager inputGame) {
         super(inputGame);
+        font = new BitmapFont();
+        font.setColor(Color.WHITE);
         bunny = new Bunny(20, 300);
         camera.setToOrtho(false, 240, 400);
         background = new Texture("background.png");
@@ -43,6 +49,7 @@ public class PlayState extends State {
         for (HitBox box : boxes) {
             if (camera.position.x - (camera.viewportWidth / 2) > box.getTopPosition().x + box.getTopBox().getWidth()) {
                 box.reposition(box.getTopPosition().x + ((box.BOX_WIDTH + BOX_SPACE) * BOX_COUNT));
+                score++;
             }
 
             if(box.collision(bunny.getBunnyBounds())) {
@@ -63,6 +70,7 @@ public class PlayState extends State {
             stateBatch.draw(box.getTopBox(), box.getTopPosition().x, box.getTopPosition().y);
             stateBatch.draw(box.getBottomBox(), box.getBottomPosition().x, box.getBottomPosition().y);
         }
+        font.draw(stateBatch, "SCORE : " + score, bunny.getPosition().x + 50, 400);
         stateBatch.end();
     }
 

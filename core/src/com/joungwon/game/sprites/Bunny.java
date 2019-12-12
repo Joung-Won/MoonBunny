@@ -19,7 +19,7 @@ public class Bunny {
         velocity = new Vector3(0, 0, 0);
         Texture animationTexture = new Texture("animation.png");
         animation = new Animation(new TextureRegion(animationTexture), 3, 0.5f);
-        bunnyBounds = new Rectangle(x + 50, y + 20, animationTexture.getWidth() / 3 - 40, animationTexture.getHeight() - 50);
+        bunnyBounds = new Rectangle(x, y, animationTexture.getWidth() / 3 - 40, animationTexture.getHeight() - 30);
     }
     public void update(float deltaTime) {
         animation.update(deltaTime);

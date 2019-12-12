@@ -10,7 +10,7 @@ import com.joungwon.game.states.MenuState;
 public class MoonBunny extends ApplicationAdapter {
 	public static final int WIDTH =	480;
 	public static final int HEIGHT = 800;
-	public static final String TITLE = "Flappy Bird";
+	public static final String TITLE = "Moon Bunny";
 	private GameStateManager gameStateManager;
 	private SpriteBatch batch;
 	

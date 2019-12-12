@@ -21,8 +21,8 @@ public class HitBox {
         random = new Random();
         topPosition = new Vector2(oat, random.nextInt(SPACE) + SPACE + LOWEST);
         bottomPosition = new Vector2(oat, topPosition.y - SPACE - bottomBox.getHeight());
-        boundsTop = new Rectangle(topPosition.x, topPosition.y, topBox.getWidth() - 30, topBox.getHeight() + 15);
-        boundsBottom = new Rectangle(bottomPosition.x, bottomPosition.y, bottomBox.getWidth() - 30, bottomBox.getHeight() - 50);
+        boundsTop = new Rectangle(topPosition.x, topPosition.y, topBox.getWidth() - 20, topBox.getHeight());
+        boundsBottom = new Rectangle(bottomPosition.x, bottomPosition.y, bottomBox.getWidth() - 20, bottomBox.getHeight() - 40);
     }
 
     public Texture getTopBox() {
